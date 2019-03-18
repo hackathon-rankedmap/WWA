@@ -4,7 +4,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>WWA</title>
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <h1>Carte du monde</h1>
@@ -20,18 +22,36 @@
       var map = am4core.create("chartDiv", am4maps.MapChart);
       map.geodata = am4geodata_worldLow;
       map.projection = new am4maps.projections.Miller();
+      var button = map.chartContainer.createChild(am4core.Button);
+        button.padding(5, 5, 5, 5);
+        button.width = 20;
+        button.align = "right";
+        button.marginRight = 15;
+        button.events.on("hit", function() {
+        map.goHome();
+        });
+        button.icon = new am4core.Sprite();
+        button.icon.path = "M16,8 L14,8 L14,16 L10,16 L10,10 L6,10 L6,16 L2,16 L2,8 L0,8 L8,0 L16,8 Z M16,8";
 
       // Series for World map
       var polygonSeries = new am4maps.MapPolygonSeries();
       var worldSeries = map.series.push(polygonSeries);
+      
       worldSeries.exclude = ["AQ"];
       worldSeries.useGeodata = true;
+     
 
       var polygonTemplate = worldSeries.mapPolygons.template;
       polygonTemplate.tooltipText = "{name}";
       polygonTemplate.fill = map.colors.getIndex(0);
       polygonTemplate.nonScalingStroke = true;
+      
+      // Add zoom control
+    map.zoomControl = new am4maps.ZoomControl();
 
+    // Add and configure small map
+    map.smallMap = new am4maps.SmallMap();
+    map.smallMap.series.push(polygonSeries);
     </script>
 
 <script src="app.js"></script>
