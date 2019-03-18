@@ -8,6 +8,31 @@
 </head>
 <body>
     <h1>Carte du monde</h1>
+    <div id="chartDiv" >
+    </div>
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+
+    <script>
+      // Create chart instance
+      var map = am4core.create("chartDiv", am4maps.MapChart);
+      map.geodata = am4geodata_worldLow;
+      map.projection = new am4maps.projections.Miller();
+
+      // Series for World map
+      var polygonSeries = new am4maps.MapPolygonSeries();
+      var worldSeries = map.series.push(polygonSeries);
+      worldSeries.exclude = ["AQ"];
+      worldSeries.useGeodata = true;
+
+      var polygonTemplate = worldSeries.mapPolygons.template;
+      polygonTemplate.tooltipText = "{name}";
+      polygonTemplate.fill = map.colors.getIndex(0);
+      polygonTemplate.nonScalingStroke = true;
+
+    </script>
 
 <script src="app.js"></script>
 </body>

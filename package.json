@@ -2,5 +2,8 @@
   "dependencies": {
     "@amcharts/amcharts4": "^4.2.3",
     "@amcharts/amcharts4-geodata": "^4.1.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
   }
 }
