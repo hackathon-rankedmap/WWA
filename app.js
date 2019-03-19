@@ -71,4 +71,9 @@
     // Add and configure small map
     map.smallMap = new am4maps.SmallMap();
     map.smallMap.series.push(polygonSeries);
-    
+
+    getPopularArticles('fr-fr', 1).then( (articles) => getPopularTopics(articles) ).then((topics) => console.log(topics));
+    // getPopularArticles('fr-fr', 1).then( (articles) => console.log(articles));
+
+
+    // searchByText('psg', '20190319__20190319', 'fr-fr');
