@@ -8,6 +8,7 @@
         button.align = "right";
         button.marginRight = 15;
         button.events.on("hit", function() {
+        map.closeAllPopups();
         map.goHome();
         });
         button.icon = new am4core.Sprite();
@@ -18,19 +19,95 @@
       var worldSeries = map.series.push(polygonSeries);
       
       worldSeries.exclude = ["AQ"];
+      
+  
+
       worldSeries.useGeodata = true;
 
-     
+     // Map countries color
+      function am4themes_myTheme(target) {
+        if (target instanceof am4core.ColorSet) {
+          target.list = [
+            am4core.color("#1BA68D"),
+            am4core.color("#E7DA4F"),
+            am4core.color("#E77624"),
+            am4core.color("#DF3520"),
+            am4core.color("#64297B"),
+            am4core.color("#232555")
+          ];
+        }
+      }
+      
+      
+      
+    
 
       var polygonTemplate = worldSeries.mapPolygons.template;
       polygonTemplate.applyOnClones = true;
       polygonTemplate.togglable = true;
       polygonTemplate.tooltipText = "{name}";
+      polygonTemplate.fill = am4core.color("#080027");
       polygonTemplate.fill = map.colors.getIndex(0);
       polygonTemplate.nonScalingStroke = true;
       polygonTemplate.strokeWidth = 0.5;
       polygonTemplate.strokeOpacity = 0.5;
       polygonTemplate.fill = map.colors.getIndex(0);
+
+
+// Create hover state and set alternative fill color
+var hs = polygonTemplate.states.create("hover");
+hs.properties.fill = am4core.color("#367B25");
+polygonTemplate.fill = am4core.color("#504f5d");
+
+
+// Remove Antarctica
+polygonSeries.exclude = ["AQ"];
+
+// Add some data
+polygonSeries.data = [{
+  "id": "US",
+  "name": "United States",
+  "fill": am4core.color("#F05C5C")
+}, 
+{
+    "id": "IT",
+    "name": "Italie",
+    "fill": am4core.color("#F05C5C")
+  },
+  {
+    "id": "PT",
+    "name": "Portugal",
+    "fill": am4core.color("#F05C5C")
+  },
+  {
+    "id": "GB",
+    "name": "United Kingdom",
+    "fill": am4core.color("#F05C5C")
+  },
+  {
+    "id": "BE",
+    "name": "Belgium",
+    "fill": am4core.color("#F05C5C")
+  },
+  {
+    "id": "ES",
+    "name": "Spain",
+    "fill": am4core.color("#F05C5C")
+  },
+  {
+    "id": "DE",
+    "name": "Germany",
+    "fill": am4core.color("#F05C5C")
+  },{
+  "id": "FR",
+  "name": "France",
+  "fill": am4core.color("#F05C5C")
+}];
+
+// Bind "fill" property to "fill" key in data
+polygonTemplate.propertyFields.fill = "fill";
+
+
       var lastSelected;
       polygonTemplate.events.on("hit", function(ev) {
         if (lastSelected) {
@@ -56,6 +133,7 @@
       var hs = polygonTemplate.states.create("hover");
       hs.properties.fill = map.colors.getIndex(0).brighten(-0.5);
 
+     
 
 
       
@@ -63,12 +141,11 @@
         map.closeAllPopups();
         map.openPopup("<strong>" + ev.target.dataItem.dataContext.name + "</strong>");
         
+        
       });
 
       // Add zoom control
     map.zoomControl = new am4maps.ZoomControl();
 
-    // Add and configure small map
-    map.smallMap = new am4maps.SmallMap();
-    map.smallMap.series.push(polygonSeries);
+   
     
