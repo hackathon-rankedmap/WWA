@@ -86,9 +86,9 @@
       map.smallMap.series.push(polygonSeries);
 
 
-    ozae.getAllPopularArticles(1)
-    .then((articles) => ozae.getPopularTopics(articles.flat()))
-    .then((topics) => { console.log(topics) })
+    // ozae.getAllPopularArticles(1)
+    // .then((articles) => ozae.getPopularTopics(articles.flat()))
+    // .then((topics) => { console.log(topics) })
 
     }
   }
