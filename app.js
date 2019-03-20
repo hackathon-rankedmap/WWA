@@ -81,59 +81,7 @@
 
 //navbar
 
-function myFunctionfr(){
-    console.log("az");
-            var target = polygonSeries.getPolygonById("FR");
-            // Pre-zoom
-            map.zoomToMapObject(target);
 
-}
-
-      function myFunctionEU(){
-          console.log("az");
-          var target = polygonSeries.getPolygonById("US");
-          // Pre-zoom
-          map.zoomToMapObject(target);
-      }
-
-      function myFunctionRU(){
-          console.log("az");
-          var target = polygonSeries.getPolygonById("GB");
-          // Pre-zoom
-          map.zoomToMapObject(target);
-      }
-
-      function myFunctionBR(){
-          console.log("az");
-          var target = polygonSeries.getPolygonById("BE");
-          // Pre-zoom
-          map.zoomToMapObject(target);
-      }
-      function myFunctionAL(){
-          console.log("az");
-          var target = polygonSeries.getPolygonById("DE");
-          // Pre-zoom
-          map.zoomToMapObject(target);
-      }
-
-      function myFunctionES(){
-          console.log("az");
-          var target = polygonSeries.getPolygonById("ES");
-          // Pre-zoom
-          map.zoomToMapObject(target);
-      }
-      function myFunctionPR(){
-          console.log("az");
-          var target = polygonSeries.getPolygonById("PT");
-          // Pre-zoom
-          map.zoomToMapObject(target);
-      }
-      function myFunctionIT(){
-          console.log("az");
-          var target = polygonSeries.getPolygonById("IT");
-          // Pre-zoom
-          map.zoomToMapObject(target);
-      }
 
 
 
