@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+        <Search></Search>
     <Map></Map>
   </div>
 </template>
@@ -8,12 +9,15 @@
 
 import HelloWorld from './components/HelloWorld.vue'
 import Map from './components/MapComponent'
+import Search from './components/SearchComponent'
+
 
 export default {
   name: 'app',
   components: {
     HelloWorld,
-    Map
+    Map,
+    Search
   }
 }
 </script>
