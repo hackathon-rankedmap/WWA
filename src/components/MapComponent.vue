@@ -6,7 +6,7 @@
   import * as am4core from "@amcharts/amcharts4/core";
   import * as am4maps from "@amcharts/amcharts4/maps";
   import am4geodata_worldLow from "@amcharts/amcharts4-geodata/worldLow";
-  import * as ozae from '../ozaeApi';
+  import { serverBus } from "../main";
 
   export default {
     name: 'Map',
@@ -155,6 +155,17 @@ polygonTemplate.propertyFields.fill = "fill";
         map.openPopup("<strong>" + ev.target.dataItem.dataContext.name + "</strong>");
         
         
+      });
+
+      serverBus.$on('locale', (locale) => {
+        console.log(locale);
+        if(locale === 'MD'){
+          console.log('okkk');
+          map.goHome();
+        } else {
+            const target = polygonSeries.getPolygonById(locale);
+            map.zoomToMapObject(target);
+        }
       });
 
       // Add zoom control

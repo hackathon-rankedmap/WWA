@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-        <Search></Search>
+    <NavBar></NavBar>
+    <Search></Search>
     <Map></Map>
   </div>
 </template>
@@ -8,6 +9,7 @@
 <script>
 
 import Map from './components/MapComponent'
+import NavBar from './components/NavBarComponent'
 import Search from './components/SearchComponent'
 
 
@@ -15,6 +17,7 @@ export default {
   name: 'app',
   components: {
     Map,
+    NavBar,
     Search
   }
 }
@@ -27,7 +30,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 body {
     margin: 0;

@@ -2,6 +2,8 @@ import axios from 'axios';
 
 const key = '7d54ecd011044b1eb1397aad147637b8';
 const baseUrl = 'https://api.ozae.com';
+const locales = ['fr-fr', 'en-gb', 'fr-be', 'nl-be', 'de-de', 'en-us-ny', 'it-it', 'pt-br'];
+
 
 
 export function getPopularArticles(edition, hours, order = 'social_score', orderStr = 'DESC'){
@@ -11,7 +13,6 @@ export function getPopularArticles(edition, hours, order = 'social_score', order
 
 export function getAllPopularArticles( hours, order = 'social_score', orderStr = 'DESC'){
   const allArticles = [];
-  const locales = ['fr-fr', 'en-gb', 'fr-be', 'nl-be', 'de-de', 'en-us-ny', 'it-it', 'pt-br'];
   locales.forEach( (locale) => {
     allArticles.push(getPopularArticles(locale, hours, order, orderStr));
   });
@@ -52,8 +53,26 @@ export function getTotalScores(articles){
   return Promise.resolve(score);
 }
 
+export function getTotalScoresByCategory(category) {
+  const total = [];
+  locales.forEach((locale) => {
+    getArticles("20190319__20190320", locale, category)
+        .then((articles) => getTotalScores(articles))
+        .then((score) => total.push({
+          locale: score
+        }))
+  });
+}
 
 
+/*
+[
+  {
+    'locale' : score
+  },
+
+]
+ */
 
 
 
