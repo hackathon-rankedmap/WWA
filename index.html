@@ -7,10 +7,86 @@
     <title>WWA</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+        </a>
+
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    ETATS-UNIS
+                </a>
+
+                <div class="navbar-dropdown">
+                    <a class="navbar-item">
+                        NEW YORK
+                    </a>
+                    <a class="navbar-item">
+                        SAN FRANCISCO
+                    </a>
+                </div>
+            </div>
+
+            <a class="navbar-item">
+                ROYAUME-UNIS
+            </a>
+
+            <p  class="navbar-item" id="gotoFrance" onclick="myFunction()">
+                FRANCE
+            </p>
+
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    BELGIQUE
+                </a>
+
+                <div class="navbar-dropdown">
+                    <a class="navbar-item">
+                        FRANCOPHONE
+                    </a>
+                    <a class="navbar-item">
+                        FLAMAND
+                    </a>
+
+                </div>
+            </div>
+
+            <a class="navbar-item">
+                ALLEMAGNE
+            </a>
+
+            <a class="navbar-item">
+                PORTUGAL
+            </a>
+
+            <a class="navbar-item">
+                ESPAGNE
+            </a>
+            <a class="navbar-item">
+                MONDE
+            </a>
+
+        </div>
+
+    </div>
+</nav>
+
+
+
 <body>
     <h1>Carte du monde</h1>
-    <div id="chartDiv" >
-    </div>
+
+
+    <div id="chartDiv">   </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="api.js"></script>
     <script src="https://www.amcharts.com/lib/4/core.js"></script>
@@ -19,6 +95,7 @@
     <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
     <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 
-<script src="app.js"></script>
+
+    <script src="app.js"></script>
 </body>
 </html>
