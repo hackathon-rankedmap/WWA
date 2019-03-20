@@ -6,6 +6,7 @@
   import * as am4core from "@amcharts/amcharts4/core";
   import * as am4maps from "@amcharts/amcharts4/maps";
   import am4geodata_worldLow from "@amcharts/amcharts4-geodata/worldLow";
+  import * as ozae from '../ozaeApi';
 
   export default {
     name: 'Map',
@@ -159,11 +160,11 @@ polygonTemplate.propertyFields.fill = "fill";
       // Add zoom control
     map.zoomControl = new am4maps.ZoomControl();
 
-      // getPopularArticles('fr-fr', 1).then( (articles) => getPopularTopics(articles) ).then((topics) => console.log(topics));
-      // getPopularArticles('fr-fr', 1).then( (articles) => console.log(articles));
 
+    // ozae.getAllPopularArticles(1)
+    // .then((articles) => ozae.getPopularTopics(articles.flat()))
+    // .then((topics) => { console.log(topics) })
 
-      // searchByText('psg', '20190319__20190319', 'fr-fr');
     }
   }
 </script>

@@ -7,7 +7,6 @@
 
 <script>
 
-import HelloWorld from './components/HelloWorld.vue'
 import Map from './components/MapComponent'
 import Search from './components/SearchComponent'
 
@@ -15,9 +14,13 @@ import Search from './components/SearchComponent'
 export default {
   name: 'app',
   components: {
+<<<<<<< HEAD
     HelloWorld,
     Map,
     Search
+=======
+    Map
+>>>>>>> 89f7db3eb768a1c528affa02b672abd31e00bfde
   }
 }
 </script>
