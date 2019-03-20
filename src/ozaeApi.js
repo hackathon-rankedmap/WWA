@@ -36,15 +36,21 @@ export function searchByText(query, date, edition, limit = 20) {
   axios.get(url)
       .then( (response) => {return Promise.resolve(response.data.articles)} )
 }
-//
-// function getArticles(date = null, edition = null, topic = null, order = null, limit = null){
-//     let url = `${baseUrl}/gnw/articles`;
-//   if(edition){
-//
-//   }
-//   axios.get(url)
-//       .then( (response) => console.log(response.data) )
-// }
+
+
+export function getArticles(date = "", edition = "", topic = "", order = "", limit = 9){
+  let url = `${baseUrl}/gnw/articles?key=${key}&edition=${edition}&date=${date}&topic=${topic}&order=${order}&hard_limit=${limit}`;
+  return axios.get(url)
+      .then( (response) => Promise.resolve(response.data.articles) )
+}
+
+export function getTotalScores(articles){
+  let score = 0;
+  articles.forEach((article) => {
+    score += article['article_score'];
+  });
+  return Promise.resolve(score);
+}
 
 
 

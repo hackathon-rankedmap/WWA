@@ -164,6 +164,12 @@ polygonTemplate.propertyFields.fill = "fill";
     // ozae.getAllPopularArticles(1)
     // .then((articles) => ozae.getPopularTopics(articles.flat()))
     // .then((topics) => { console.log(topics) })
+    // total score for a country
+    // ozae.getArticles("20190319__20190320", 'fr-fr', 's')
+    //   .then((articles) =>  ozae.getTotalScores(articles))
+    //   .then((score) => console.log(score))
+    // ;
+
 
     }
   }
