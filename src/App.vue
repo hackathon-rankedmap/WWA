@@ -1,22 +1,24 @@
 <template>
   <div id="app">
     <NavBar></NavBar>
+    <Search></Search>
     <Map></Map>
   </div>
 </template>
 
 <script>
 
-import HelloWorld from './components/HelloWorld.vue'
 import Map from './components/MapComponent'
 import NavBar from './components/NavBarComponent'
+import Search from './components/SearchComponent'
+
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
     Map,
-    NavBar
+    NavBar,
+    Search
   }
 }
 </script>
@@ -28,5 +30,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+body {
+    margin: 0;
 }
 </style>

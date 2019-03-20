@@ -171,11 +171,17 @@ polygonTemplate.propertyFields.fill = "fill";
       // Add zoom control
     map.zoomControl = new am4maps.ZoomControl();
 
-      // getPopularArticles('fr-fr', 1).then( (articles) => getPopularTopics(articles) ).then((topics) => console.log(topics));
-      // getPopularArticles('fr-fr', 1).then( (articles) => console.log(articles));
+
+    // ozae.getAllPopularArticles(1)
+    // .then((articles) => ozae.getPopularTopics(articles.flat()))
+    // .then((topics) => { console.log(topics) })
+    // total score for a country
+    // ozae.getArticles("20190319__20190320", 'fr-fr', 's')
+    //   .then((articles) =>  ozae.getTotalScores(articles))
+    //   .then((score) => console.log(score))
+    // ;
 
 
-      // searchByText('psg', '20190319__20190319', 'fr-fr');
     }
   }
 </script>
