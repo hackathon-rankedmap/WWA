@@ -6,13 +6,11 @@
 
 <script>
 
-import HelloWorld from './components/HelloWorld.vue'
 import Map from './components/MapComponent'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
     Map
   }
 }
