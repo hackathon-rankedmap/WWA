@@ -4,6 +4,8 @@ import App from './App.vue'
 import VueRouter from "vue-router"
 import MapComponent from './components/MapComponent.vue'
 import SearchComponent from './components/SearchComponent.vue'
+import NavBarComponent from './components/NavBarComponent.vue'
+
 
 Vue.use(VueRouter)
 
@@ -12,7 +14,7 @@ Vue.use(VueRouter)
   const routes = [
 
     {path: '/',component: SearchComponent},
-    {path: '/map',component: MapComponent},
+    {path: '/map',component: MapComponent,NavBarComponent},
 
   ];
 

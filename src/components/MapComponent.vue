@@ -1,5 +1,6 @@
 <template>
 <div>
+  <NavBar></NavBar>
 <button @click ="goHome"> <a class="button is-primary is-rounded">Choisir une catégorie</a>
 </button>
     <div class="hello" id="chartDiv">
@@ -9,6 +10,7 @@
 </template>
 
 <script>
+  import NavBar from './NavBarComponent.vue'
   import * as am4core from "@amcharts/amcharts4/core";
   import * as am4maps from "@amcharts/amcharts4/maps";
   import am4geodata_worldLow from "@amcharts/amcharts4-geodata/worldLow";
@@ -19,9 +21,13 @@
       goHome(){
         this.$router.push('/');
       },
+      
     },
     
     name: 'Map',
+    components:{
+      NavBar,
+    },
     mounted() {
       
       // Create chart instance
