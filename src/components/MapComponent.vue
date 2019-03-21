@@ -4,7 +4,8 @@
         <button @click ="goHome"> <a class="button is-primary is-rounded">Choisir une catégorie</a></button>
         <div class="columns">
             <div class="column is-one-quarter">
-
+                <SideBar >
+                </SideBar>
             </div>
 
             <div class="hello column" id="chartDiv">
@@ -224,4 +225,6 @@
         background-color: #080027;
 
     }
+
+
 </style>
