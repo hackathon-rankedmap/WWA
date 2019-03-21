@@ -39,8 +39,9 @@ export function searchByText(query, date, edition, limit = 20) {
 }
 
 
-export function getArticles(date = "", edition = "", topic = "", order = "", limit = 9){
-  let url = `${baseUrl}/gnw/articles?key=${key}&edition=${edition}&date=${date}&topic=${topic}&order=${order}&hard_limit=${limit}`;
+export function getArticles(date = "", edition = "", topic = "", order = "social_score", limit = 9){
+  // let url = `${baseUrl}/gnw/articles?key=${key}&edition=${edition}&date=${date}&topic=${topic}&order=${order}&hard_limit=${limit}`;
+  let url = `${baseUrl}/gnw/articles?date=${date}&edition=${edition}&key=${key}&hard_limit=${limit}&topic=${topic}&order[col]=${order}`;
   return axios.get(url)
       .then( (response) => Promise.resolve(response.data.articles) )
 }
