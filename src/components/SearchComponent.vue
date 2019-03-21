@@ -1,6 +1,6 @@
 <template>
     <div>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css" integrity="sha384-Mmxa0mLqhmOeaE8vgOSbKacftZcsNYDjQzuCOm6D02luYSzBG8vpaOykv9lFQ51Y" crossorigin="anonymous">
+        <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css" integrity="sha384-Mmxa0mLqhmOeaE8vgOSbKacftZcsNYDjQzuCOm6D02luYSzBG8vpaOykv9lFQ51Y" crossorigin="anonymous">-->
         <div class="searchpage">
             <nav class="navbar" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand">
@@ -32,29 +32,39 @@
                             </article>
                             <article class="tile is-child box" id="economie" @click="test('b')">
                                 <img src="../assets/images/Fichier_7@4x.png" alt="" width="80" height="10">
-                                <router-link class="nav-link" to="/map">
+                                <router-link class="nav-link" to="/map/economy">
                                     <p class="Subtitle"><strong>
-
                                         ECONOMIE
                                     </strong></p>  </router-link>
                             </article>
                             <article class="tile is-child box" id="scienceTech" @click="test('t')">
                                 <img src="../assets/images/Fichier_8@4x.png" alt="" width="80" height="10">
-                                <p class="Subtitle"><strong>SCIENCE ET TECHNOLOGIE</strong></p>
+                                <router-link class="nav-link" to="/map/science">
+                                    <p class="Subtitle"><strong>SCIENCE ET TECHNOLOGIE</strong></p>
+                                </router-link>
+
                             </article>
                         </div>
                         <div class="tile">
                             <article class="tile is-child box" id="divertissement" @click="test('e')">
                                 <img src="../assets/images/Fichier_10@4x.png" alt="" width="80" height="10">
-                                <p class="Subtitle"><strong>DIVERTISSEMENT</strong></p>
+                                <router-link class="nav-link" to="/map/entertainment">
+                                    <p class="Subtitle"><strong>DIVERTISSEMENT</strong></p>
+                                </router-link>
                             </article>
                             <article class="tile is-child box" id="sport" @click="test('s')">
                                 <img src="../assets/images/Fichier_11@4x.png" alt="" width="80" height="10">
-                                <p class="Subtitle"><strong>SPORT</strong></p>
+                                <router-link class="nav-link" to="/map/sport">
+                                    <p class="Subtitle"><strong>SPORT</strong></p>
+                                </router-link>
+
                             </article>
                             <article class="tile is-child box" id="santé" @click="test('m')">
                                 <img src="../assets/images/Fichier_12@4x.png" alt="" width="80" height="10">
-                                <p class="Subtitle"><strong>SANTE</strong></p>
+                                <router-link class="nav-link" to="/map/health">
+                                    <p class="Subtitle"><strong>SANTE</strong></p>
+                                </router-link>
+
                             </article>
                         </div>
                     </div>

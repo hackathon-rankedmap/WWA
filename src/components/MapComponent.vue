@@ -1,9 +1,9 @@
 <template>
     <div>
         <NavBar></NavBar>
-        <button @click ="goHome"> <a class="button is-primary is-rounded">Choisir une catégorie</a></button>
+        <router-link to="/" class="button is-primary is-rounded" style="margin-top: 16px; font-weight: bold">Choisir une catégorie</router-link>
         <div class ="side">
-            <SideBar></SideBar>
+            <SideBar v-show="toggleSideBar" :articles="articles"></SideBar>
             <div class="hello" id="chartDiv">
             </div>
         </div>
@@ -11,19 +11,24 @@
 </template>
 <script>
   import NavBar from './NavBarComponent.vue'
+  import SideBar from './sidebar'
   import * as am4core from "@amcharts/amcharts4/core";
   import * as am4maps from "@amcharts/amcharts4/maps";
   import am4geodata_worldLow from "@amcharts/amcharts4-geodata/worldLow";
   import {serverBus} from "../main";
+  import * as ozae from '../ozaeApi';
 
   export default {
     name: 'Map',
     components:{
       NavBar,
+      SideBar
     },
     data () {
       return {
+        toggleSideBar: false,
         category : this.$route.params.category,
+        articles : []
       }
     },
     methods:{
@@ -154,6 +159,7 @@
       ];
 
       serverBus.$on('getScoresByCat', (scores) => {
+        console.log(scores);
         polygonSeries.data.forEach((country, index, array) => {
           if(scores[country['edition']] !== undefined){
             country['score'] = scores[country['edition']];
@@ -167,7 +173,22 @@
 
       var lastSelected;
       polygonTemplate.events.on("hit", (ev) => {
-        this.$router.push(`/map/${this.category}/${ev.target._dataItem.dataContext.edition}`);
+        let edition = ev.target._dataItem.dataContext.edition;
+        this.$router.push(`/map/${this.category}/${edition}`);
+        const matching = {
+          'economy': 'b',
+          'health': 'm',
+          'sport': 's',
+          'science': 't',
+          'entertainment': 'e'
+        };
+        ozae.getArticles('20190319__20190320', edition, matching[this.category])
+          .then((articles) => {
+              this.articles = articles;
+              console.log(this.articles);
+              this.toggleSideBar = true;
+        });
+
         if (lastSelected) {
           // This line serves multiple purposes:
           // 1. Clicking a country twice actually de-activates, the line below
