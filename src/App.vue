@@ -1,16 +1,24 @@
 <template>
   <div id="app">
-    <NavBar></NavBar>
-    <Search></Search>
-    <Map></Map>
+
+        <router-view></router-view>
+
+
   </div>
+
+ 
+  
+ 
 </template>
+
+
 
 <script>
 
 import Map from './components/MapComponent'
 import NavBar from './components/NavBarComponent'
 import Search from './components/SearchComponent'
+
 
 
 export default {
