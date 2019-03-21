@@ -2,11 +2,16 @@
     <div>
         <NavBar></NavBar>
         <button @click ="goHome"> <a class="button is-primary is-rounded">Choisir une catégorie</a></button>
-        <div class ="side">
-            <SideBar></SideBar>
-            <div class="hello" id="chartDiv">
+        <div class="columns">
+            <div class="column is-one-quarter">
+
+            </div>
+
+            <div class="hello column" id="chartDiv">
             </div>
         </div>
+
+
     </div>
 </template>
 <script>

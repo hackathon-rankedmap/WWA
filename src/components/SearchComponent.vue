@@ -244,7 +244,7 @@
     }
     .basDePage{
         padding: 12px;
-        margin-right: 90%;
+        margin-right: 85%;
 
     }
 </style>
