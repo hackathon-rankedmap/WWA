@@ -44,6 +44,7 @@
 
         </footer>
     </div>
+
 </SideBar>
 
 </template>
@@ -61,6 +62,7 @@
 
 
     }
+
     .content{
         font-weight: bold;
     }
