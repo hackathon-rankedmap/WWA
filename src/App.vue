@@ -1,14 +1,21 @@
 <template>
   <div id="app">
-        <Search></Search>
-    <Map></Map>
+        <router-view></router-view>
+
   </div>
+
+ 
+  
+ 
 </template>
+
+
 
 <script>
 
 import Map from './components/MapComponent'
 import Search from './components/SearchComponent'
+
 
 
 export default {

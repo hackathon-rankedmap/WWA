@@ -1,5 +1,11 @@
 <template>
-    <div class="hello" id="chartDiv"></div>
+<div>
+<button @click ="goHome"> <a class="button is-primary is-rounded">Choisir une catégorie</a>
+</button>
+    <div class="hello" id="chartDiv">
+        
+    </div>
+    </div>
 </template>
 
 <script>
@@ -9,8 +15,15 @@
   import * as ozae from '../ozaeApi';
 
   export default {
+    methods:{
+      goHome(){
+        this.$router.push('/');
+      },
+    },
+    
     name: 'Map',
     mounted() {
+      
       // Create chart instance
       var map = am4core.create("chartDiv", am4maps.MapChart);
       map.geodata = am4geodata_worldLow;
@@ -173,6 +186,7 @@ polygonTemplate.propertyFields.fill = "fill";
 
     }
   }
+  
 </script>
 
 <style>

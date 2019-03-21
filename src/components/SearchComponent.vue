@@ -1,13 +1,27 @@
 <template>
 
+
+<div>
+<div class="container">
+
+
+
+  <div class="field-input">
+    <input type="text" placeholder="Search..."/> <font-awesome-icon icon="search" />
+<span> </span>
+  </div>
+  
+  </div>
+
 <div class="categ">
+    
           <div class ="width">
                   <p class="top">Les TOP</p>
           </div>
           <div class ="width economie" >
-              
+              <router-link class="nav-link" to="/map">
           Economie
-
+</router-link>
           </div>
           <div class ="width science">
                Sciences et Technologies
@@ -25,7 +39,8 @@
           </div>
         </div>
       
-  
+
+      </div>
 </template>
 
   <script>
@@ -83,5 +98,38 @@
                 height: 100px;
 
     }
+
+
+    .container {
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 5rem 2rem;
+}
+.container .field-input {
+  text-align: center;
+}
+.container .field-input input {
+  text-align: left;
+  border-radius: 6rem;
+  border: 1px solid #a0a0a0;
+  padding: .6rem 2rem .6rem 1rem;
+  width: 685px;
+  font-family: 'roboto';
+  transition: .5s;
+}
+.container .field-input input:focus {
+  outline: none;
+  border-color: #212121;
+  transition: .5s;
+}
+.container .field-input span:before {
+  cursor: pointer;
+  position: relative;
+  font-family: 'fontawesome';
+  top: 0;
+  right: 1.5rem;
+}
+
 </style>
 
