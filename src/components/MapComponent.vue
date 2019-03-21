@@ -1,17 +1,31 @@
 <template>
-    <div class="hello" id="chartDiv"></div>
+    <div>
+        <NavBar></NavBar>
+        <button @click ="goHome"> <a class="button is-primary is-rounded">Choisir une catégorie</a>
+        </button>
+        <div class="hello" id="chartDiv">
+
+        </div>
+    </div>
 </template>
 
 <script>
+  import NavBar from './NavBarComponent.vue'
   import * as am4core from "@amcharts/amcharts4/core";
   import * as am4maps from "@amcharts/amcharts4/maps";
   import am4geodata_worldLow from "@amcharts/amcharts4-geodata/worldLow";
   import {serverBus} from "../main";
 
   export default {
-    name: 'Map',
-    methods: {
+    methods:{
+      goHome(){
+        this.$router.push('/');
+      },
+    },
 
+    name: 'Map',
+    components:{
+      NavBar,
     },
     mounted() {
       serverBus.$on('locale', (locale) => {
@@ -179,7 +193,7 @@
         let data = ev.target.dataItem.dataContext;
         let name = data.name;
         if(data.score !== undefined){
-            name += `<br>${data.score}`;
+          name += `<br>${data.score}`;
         }
         map.openPopup(name);
       });
@@ -192,6 +206,7 @@
 
     }
   }
+
 </script>
 
 <style>
