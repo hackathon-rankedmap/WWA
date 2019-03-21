@@ -1,27 +1,23 @@
 <template>
 
 <div class="categ">
-          <div class ="width" @click="">
+          <div class ="width">
                   <p class="top">Les TOP</p>
           </div>
-          <div class ="width economie" >
-              
-          Economie
-
+          <div class ="width economie" @click="test('b')" >
+               Economie
           </div>
-          <div class ="width science">
+          <div class ="width science" @click="test('t')">
                Sciences et Technologies
           </div>
-
-          <div class ="width divertissement">
-             Divertissement
+          <div class ="width divertissement " @click="test('e')">
+               Divertissement
           </div>
-
-          <div class ="width sports">
-                Sports
+          <div class ="width sports" @click="test('s')">
+               Sports
           </div>
-          <div class ="width santé">
-             Santé
+          <div class ="width santé" @click="test('m')">
+               Santé
           </div>
         </div>
       
@@ -30,6 +26,8 @@
 
   <script>
     import * as ozae from '../ozaeApi';
+    import { serverBus } from "../main";
+
     export default {
       name: 'Search',
       data () {
@@ -39,8 +37,25 @@
       },
       methods: {
         getScoreByCategory(category){
-            ozae.getAllPopularArticles(1)
-                .then((articles) => ozae.getTotalScores(articles))
+          const scores = {};
+          const promises = [];
+          this.locales.forEach((locale) => {
+            promises.push(
+                ozae.getArticles("20190319__20190320", locale, category)
+                    .then((articles) => ozae.getTotalScores(articles))
+                    .then((score) => { return score })
+            );
+          });
+          return Promise.all(promises).then((values) => {
+            values.forEach( (value, index) => {
+              scores[this.locales[index]] = value
+            });
+            return Promise.resolve(scores);
+          });
+        },
+        test(category){
+          this.getScoreByCategory(category)
+          .then((scores) => serverBus.$emit('getScoresByCat', scores))
         }
       }
   }

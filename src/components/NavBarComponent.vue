@@ -11,8 +11,8 @@
             <div class="navbar-start">
 
 
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link" @click="zoomTo('US')">
+                <div class="navbar-item">
+                    <a class="navbar-item" @click="zoomTo('US')">
                         ETATS-UNIS
                     </a>
                 </div>
@@ -26,8 +26,8 @@
                 </a>
 
 
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link" @click="zoomTo('BE')">
+                <div class="navbar-item">
+                    <a class="navbar-item" @click="zoomTo('BE')">
                         BELGIQUE
                     </a>
                 </div>
