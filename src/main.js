@@ -1,4 +1,6 @@
 import './../node_modules/bulma/css/bulma.css';
+import Vue from "vue";
+import App from './App.vue'
 import VueRouter from "vue-router"
 import MapComponent from './components/MapComponent.vue'
 import SearchComponent from './components/SearchComponent.vue'
