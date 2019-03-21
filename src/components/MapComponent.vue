@@ -1,16 +1,35 @@
 <template>
-    <div class="hello" id="chartDiv"></div>
+<div>
+  <NavBar></NavBar>
+<button @click ="goHome"> <a class="button is-primary is-rounded">Choisir une catégorie</a>
+</button>
+    <div class="hello" id="chartDiv">
+        
+    </div>
+    </div>
 </template>
 
 <script>
+  import NavBar from './NavBarComponent.vue'
   import * as am4core from "@amcharts/amcharts4/core";
   import * as am4maps from "@amcharts/amcharts4/maps";
   import am4geodata_worldLow from "@amcharts/amcharts4-geodata/worldLow";
   import { serverBus } from "../main";
 
   export default {
+    methods:{
+      goHome(){
+        this.$router.push('/');
+      },
+      
+    },
+    
     name: 'Map',
+    components:{
+      NavBar,
+    },
     mounted() {
+      
       // Create chart instance
       var map = am4core.create("chartDiv", am4maps.MapChart);
       map.geodata = am4geodata_worldLow;
@@ -184,6 +203,7 @@ polygonTemplate.propertyFields.fill = "fill";
 
     }
   }
+  
 </script>
 
 <style>
