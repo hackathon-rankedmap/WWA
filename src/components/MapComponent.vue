@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="mapPage">
         <NavBar></NavBar>
-        <button @click ="goHome"> <a class="button is-primary is-rounded">Choisir une catégorie</a></button>
+
         <div class="columns">
             <div class="column is-one-quarter">
                 <SideBar >
@@ -11,7 +11,12 @@
             <div class="hello column" id="chartDiv">
             </div>
         </div>
-
+        <footer class="footer">
+            <p class="basDePage">
+                Powered by
+                <img src="../assets/images/resoneo.png" width="80">
+            </p>
+        </footer>
 
     </div>
 </template>
@@ -32,11 +37,7 @@
         category : this.$route.params.category,
       }
     },
-    methods:{
-      goHome(){
-        this.$router.push('/');
-      },
-    },
+
     mounted() {
       serverBus.$on('locale', (locale) => {
         if (locale === 'MD') {
@@ -226,5 +227,14 @@
 
     }
 
+.mapPage{
+    background-color: #060025;
+}
+    .basDePage{
+        margin-top:9%;
+        padding: 12px;
+        margin-right: 85%;
+
+    }
 
 </style>

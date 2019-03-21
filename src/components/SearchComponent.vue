@@ -5,7 +5,7 @@
             <nav class="navbar" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand">
                     <a class="navbar-item" href="https://bulma.io">
-                        <img src="../assets/Logo_WWA.png" alt="" width="112" height="28">
+                        <img src="../assets/images/Fichier_14@4x.png" width="90">
                     </a>
                 </div>
             </nav>
@@ -75,8 +75,9 @@
         </div>
 
         <footer class="footer">
-            <p class="basDePage">
+            <p class="basPage">
                 Powered by
+                <img src="../assets/images/resoneo.png" width="80">
             </p>
         </footer>
     </div>
@@ -242,7 +243,7 @@
         padding: unset;
 
     }
-    .basDePage{
+    .basPage{
         padding: 12px;
         margin-right: 85%;
 

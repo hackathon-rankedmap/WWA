@@ -2,7 +2,7 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href=""  >
-                <img src="../assets/Logo_WWA.svg" width="90">
+                <img src="../assets/images/Fichier_14@4x.png" width="90">
             </a>
 
         </div>
@@ -10,12 +10,10 @@
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
 
-
-                <div class="navbar-item">
                     <a class="navbar-item" @click="zoomTo('US')">
                         ETATS-UNIS
                     </a>
-                </div>
+
 
                 <a class="navbar-item" @click="zoomTo('GB')">
                     ROYAUME-UNIS
@@ -26,11 +24,10 @@
                 </a>
 
 
-                <div class="navbar-item">
                     <a class="navbar-item" @click="zoomTo('BE')">
                         BELGIQUE
                     </a>
-                </div>
+
 
                 <a class="navbar-item" @click="zoomTo('DE')">
                     ALLEMAGNE
@@ -46,9 +43,7 @@
                 <a class="navbar-item" @click="zoomTo('IT')">
                     ITALIE
                 </a>
-                <a class="navbar-item" @click="zoomTo('MD')">
-                    MONDE
-                </a>
+                <a @click ="goHome" class="navbar-item" >CATHEGORIES</a>
 
             </div>
         </div>
@@ -65,10 +60,17 @@
       zoomTo(locale){
         serverBus.$emit('locale', locale);
       },
+
+            goHome(){
+                this.$router.push('/');
+            },
+
     }
   }
 </script>
 
 <style scoped>
-
+.navbar-item{
+    color: white;
+}
 </style>
