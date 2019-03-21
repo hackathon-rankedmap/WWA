@@ -26,35 +26,33 @@
                     <div class="tile is-vertical is-11">
                         <div class="tile">
                             <article class="tile is-child box" id="top" @click="test()">
-                                <img src="../assets/images/Fichier_6@4x.png" alt="" width="60" height="10">
-                                <p class="Subtitle"><strong>LES PLUS RECENTS</strong></p>
+                                <img src="../assets/images/Fichier_6@4x.png" alt="" width="35" height="10">
+                                <p class="Subtitle choix">LES PLUS RECENTS</p>
 
                             </article>
-                            <article class="tile is-child box" id="economie" @click="test('b')">
-                                <img src="../assets/images/Fichier_7@4x.png" alt="" width="80" height="10">
+                            <article class="tile is-child box" id="economie1" @click="test('b')">
+
                                 <router-link class="nav-link" to="/map">
-                                    <p class="Subtitle"><strong>
+                                    <p class="Subtitle choix">
 
                                         ECONOMIE
-                                    </strong></p>  </router-link>
+                                    </p>  </router-link>
                             </article>
-                            <article class="tile is-child box" id="scienceTech" @click="test('t')">
-                                <img src="../assets/images/Fichier_8@4x.png" alt="" width="80" height="10">
-                                <p class="Subtitle"><strong>SCIENCE ET TECHNOLOGIE</strong></p>
+                            <article class="tile is-child box" id="scienceTech1" @click="test('t')">
+                                <p class="Subtitle choix">SCIENCE ET TECHNOLOGIE</p>
                             </article>
                         </div>
                         <div class="tile">
-                            <article class="tile is-child box" id="divertissement" @click="test('e')">
-                                <img src="../assets/images/Fichier_10@4x.png" alt="" width="80" height="10">
-                                <p class="Subtitle"><strong>DIVERTISSEMENT</strong></p>
+                            <article class="tile is-child box" id="divertissement1" @click="test('e')">
+                                <p class="Subtitle choix">DIVERTISSEMENT</p>
                             </article>
-                            <article class="tile is-child box" id="sport" @click="test('s')">
-                                <img src="../assets/images/Fichier_11@4x.png" alt="" width="80" height="10">
-                                <p class="Subtitle"><strong>SPORT</strong></p>
+                            <article class="tile is-child box" id="sport1" @click="test('s')">
+
+                                <p class="Subtitle choix">SPORT</p>
                             </article>
-                            <article class="tile is-child box" id="santé" @click="test('m')">
-                                <img src="../assets/images/Fichier_12@4x.png" alt="" width="80" height="10">
-                                <p class="Subtitle"><strong>SANTE</strong></p>
+                            <article class="tile is-child box" id="santé1" @click="test('m')">
+
+                                <p class="Subtitle choix">SANTE</p>
                             </article>
                         </div>
                     </div>
@@ -138,43 +136,68 @@
 
     #top
     {
-        background-color: #ff565e;
+
         padding: 60px;
         border-radius: unset;
+        font-weight: bold;
     }
 
-    #economie
+
+    #economie1
     {
-        background-color: #888888;
+        background: url("../assets/images/markus-spiske-484245-unsplash.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
         padding: 60px;
         border-radius: unset;
+        font-weight: bold;
     }
-    #scienceTech
+    #scienceTech1
     {
-        background-color: #57c556;
+        background: url("../assets/images/hans-reniers-746177-unsplash.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
         padding: 60px;
         border-radius: unset;
+        font-weight: bold;
 
     }
-    #divertissement
+    #divertissement1
     {
-        background-color: #ff51e0;
+        background: url("../assets/images/myke-simon-1037761-unsplash.jpg");
+        background-repeat: no-repeat;
+        background-size: 150%;
         padding: 60px;
         border-radius: unset;
+        font-weight: bold;
+
 
     }
-    #sport
-    {
-        background-color: #ffbb50;
-        padding: 60px;
-        border-radius: unset;
+    .choix{
+        padding-top: 1%;
 
+        background-color: black;
+        color: white;
     }
-    #santé
+    #sport1
     {
-        background-color: #52a7ff;
+        background: url("../assets/images/filip-mroz-177565-unsplash.jpg");
+        background-repeat: no-repeat;
+
         padding: 60px;
         border-radius: unset;
+        background-size: 150%;
+        font-weight: bold;
+    }
+    #santé1
+    {
+
+        background: url("../assets/images/martin-brosy-758535-unsplash.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        padding: 60px;
+        border-radius: unset;
+        font-weight: bold;
 
     }
 

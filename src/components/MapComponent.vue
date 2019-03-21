@@ -37,7 +37,7 @@
             </div>
         <div class="content" id="divertissement">
                 <div class="content" >
-                    <img src="../assets/images/Fichier_6@4x.png" alt="" width="60" height="10">
+                    <img src="../assets/images/Fichier_10@4x.png" alt="" width="60" height="10">
                     <p class="title" ><strong>DIVERTISSEMENT</strong></p>
                     <p class="Subtitle" >Les resultats et les documents, les meilleurs buts et les derniers records, vivez le sport.</p>
                 </div>
@@ -314,5 +314,46 @@
         color: white;
     }
 
+    #top
+    {
+        background-color: #ff565e;
+        padding: 60px;
+        border-radius: unset;
+    }
+
+    #economie
+    {
+        background-color: #888888;
+        padding: 60px;
+        border-radius: unset;
+    }
+    #scienceTech
+    {
+        background-color: #57c556;
+        padding: 60px;
+        border-radius: unset;
+
+    }
+    #divertissement
+    {
+        background-color: #ff51e0;
+        padding: 60px;
+        border-radius: unset;
+
+    }
+    #sport
+    {
+        background-color: #ffbb50;
+        padding: 60px;
+        border-radius: unset;
+
+    }
+    #santé
+    {
+        background-color: #52a7ff;
+        padding: 60px;
+        border-radius: unset;
+
+    }
 
 </style>
