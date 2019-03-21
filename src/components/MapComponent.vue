@@ -4,13 +4,125 @@
 
         <div class="columns">
             <div class="column is-one-quarter">
-                <SideBar >
+                <SideBar class="column ">
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                titre de la topic
+                            </p>
+                        </header>
+                        <div class="card-content">
+                            <div class="content" >
+                                titre de l'article
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+
+                                <br>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="content" >
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+
+                                <br>
+
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+                                <br>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+
+                                <br>
+
+                            </div>
+                        </div>
+
+                        <footer class="card-footer">
+                            <a href="#" class="card-footer-item">S'abonner</a>
+
+                        </footer>
+                    </div>
+
                 </SideBar>
+
             </div>
 
             <div class="hello column" id="chartDiv">
             </div>
         </div>
+            <div class="content" id="sport">
+                <div class=" content" >
+                    <img src="../assets/images/Fichier_11@4x.png" alt="" width="60" height="10">
+                    <p class="title" ><strong>SPORT</strong></p>
+                    <p class="Subtitle" >Les resultats et les documents, les meilleurs buts et les derniers records, vivez le sport.</p>
+                </div>
+                <div class="content">
+                    <p class="description" >Nous centralisons tout les articles des magazines spécialisés de manières à vous fournir
+                        une vue d'ensemble du monde du sport international</p>
+                </div>
+            </div>
+        <div class="content" id="santé">
+                <div class="content" >
+                    <img src="../assets/images/Fichier_12@4x.png" alt="" width="60" height="10" >
+                    <p class="title" ><strong>SANTE</strong></p>
+                    <p class="Subtitle" >Les resultats et les documents, les meilleurs buts et les derniers records, vivez le sport.</p>
+                </div>
+                <div class="content">
+                    <p class="description" >Nous centralisons tout les articles des magazines spécialisés de manières à vous fournir
+                        une vue d'ensemble du monde du sport international</p>
+                </div>
+            </div>
+        <div class="content" id="divertissement">
+                <div class="content" >
+                    <img src="../assets/images/Fichier_6@4x.png" alt="" width="60" height="10">
+                    <p class="title" ><strong>DIVERTISSEMENT</strong></p>
+                    <p class="Subtitle" >Les resultats et les documents, les meilleurs buts et les derniers records, vivez le sport.</p>
+                </div>
+                <div class="content">
+                    <p class="description" >Nous centralisons tout les articles des magazines spécialisés de manières à vous fournir
+                        une vue d'ensemble du monde du sport international</p>
+                </div>
+             </div>
+        <div class="content" id="top">
+
+                <div class="content" >
+                    <img src="../assets/images/Fichier_6@4x.png" alt="" width="60" height="10">
+                    <p class="title" ><strong>LES PLUS RECENTS</strong></p>
+                    <p class="Subtitle" >Les resultats et les documents, les meilleurs buts et les derniers records, vivez le sport.</p>
+                </div>
+                <div class="content">
+                    <p class="description" >Nous centralisons tout les articles des magazines spécialisés de manières à vous fournir
+                        une vue d'ensemble du monde du sport international</p>
+                </div>
+            </div>
+             <div class="content" id="scienceTech">
+                <div class="content" >
+                    <img src="../assets/images/Fichier_8@4x.png" alt="" width="60" height="10">
+                    <p class="title" ><strong>SCIENCE ET TECHNOLOGIE</strong></p>
+                    <p class="Subtitle" >Les resultats et les documents, les meilleurs buts et les derniers records, vivez le sport.</p>
+                </div>
+                <div class="content">
+                    <p class="description" >Nous centralisons tout les articles des magazines spécialisés de manières à vous fournir
+                        une vue d'ensemble du monde du sport international</p>
+                </div>
+            </div>
+        <div class="content" id="economie">
+            <div class="content" >
+                <img src="../assets/images/Fichier_7@4x.png" alt="" width="60" height="10">
+                <p class="title" ><strong>ECONOMIE</strong></p>
+                <p class="Subtitle" >Les resultats et les documents, les meilleurs buts et les derniers records, vivez le sport.</p>
+            </div>
+            <div class="content">
+                <p class="description" >Nous centralisons tout les articles des magazines spécialisés de manières à vous fournir
+                    une vue d'ensemble du monde du sport international</p>
+            </div>
+        </div>
+
         <footer class="footer">
             <p class="basDePage">
                 Powered by
@@ -231,10 +343,26 @@
     background-color: #060025;
 }
     .basDePage{
-        margin-top:9%;
+        margin-top:3%;
         padding: 12px;
         margin-right: 85%;
 
     }
+
+    .card-content{
+        background : url("../assets/images/resoneo.png");
+        opacity: 0.33;
+        background-size: 100%;
+        background-repeat: no-repeat;
+
+
+    }
+    .content{
+        font-weight: bold;
+    }
+    .description{
+        color: white;
+    }
+
 
 </style>

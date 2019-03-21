@@ -43,6 +43,7 @@
                 <a class="navbar-item" @click="zoomTo('IT')">
                     ITALIE
                 </a>
+
                 <a @click ="goHome" class="navbar-item" >CATHEGORIES</a>
 
             </div>
