@@ -1,51 +1,114 @@
 <template>
 
+    <div>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css" integrity="sha384-Mmxa0mLqhmOeaE8vgOSbKacftZcsNYDjQzuCOm6D02luYSzBG8vpaOykv9lFQ51Y" crossorigin="anonymous">
 
-<div>
-<div class="container">
+<div class="searchpage">
 
-
-
-  <div class="field-input">
-    <input type="text" placeholder="Search..."/> <font-awesome-icon icon="search" />
-<span> </span>
-  </div>
-  
-  </div>
-
-<div class="categ">
-
-    
-          <div class ="width">
-
-                  <p class="top">Les TOP</p>
-          </div>
-          <div class ="width economie" >
-              <router-link class="nav-link" to="/map">
-          Economie
-</router-link>
-          </div>
-          <div class ="width science">
-               Sciences et Technologies
-          </div>
-
-          <div class ="width divertissement">
-             Divertissement
-          </div>
-
-          <div class ="width sports">
-                Sports
-          </div>
-          <div class ="width santé">
-             Santé
-          </div>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://bulma.io">
+                <img src="../assets/Logo_WWA.png" alt="" width="112" height="28">
+            </a>
         </div>
-      
+    </nav>
 
-      </div>
+    <div class="container  ">
+
+        <div class="field column" id="searchbar">
+
+            <div class="control has-icons-left has-icons-right">
+                <input class="input" type="text" placeholder="Recherche...">
+                <span class="icon is-small is-left">
+                   <i class="fas fa-search"></i>
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="categ column is-offset-one-fifth ">
+
+        <div class="tile is-ancestor">
+            <div class="tile is-vertical is-11">
+                <div class="tile">
+
+                        <article class="tile is-child box" id="top" @click="">
+                            <img src="../assets/images/Fichier 6@4x.png" alt="" width="60" height="10">
+                            <p class="Subtitle"><strong>LES PLUS RECENTS</strong></p>
+
+                        </article>
+
+                        <article class="tile is-child box" id="economie" @click="">
+                            <img src="../assets/images/Fichier 7@4x.png" alt="" width="80" height="10">
+                            <router-link class="nav-link" to="/map">
+                            <p class="Subtitle"><strong>
+
+                                    ECONOMIE
+                              </strong></p>  </router-link>
+                        </article>
+
+                        <article class="tile is-child box" id="scienceTech">
+                            <img src="../assets/images/Fichier 8@4x.png" alt="" width="80" height="10">
+                            <p class="Subtitle"><strong>SCIENCE ET TECHNOLOGIE</strong></p>
+                        </article>
+
+                </div>
+                <div class="tile">
+
+                        <article class="tile is-child box" id="divertissement">
+                            <img src="../assets/images/Fichier 10@4x.png" alt="" width="80" height="10">
+                            <p class="Subtitle"><strong>DIVERTISSEMENT</strong></p>
+                        </article>
+
+                        <article class="tile is-child box" id="sport">
+                            <img src="../assets/images/Fichier 11@4x.png" alt="" width="80" height="10">
+                            <p class="Subtitle"><strong>SPORT</strong></p>
+                        </article>
+
+                        <article class="tile is-child box" id="santé">
+                            <img src="../assets/images/Fichier 12@4x.png" alt="" width="80" height="10">
+                            <p class="Subtitle"><strong>SANTE</strong></p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <br>
+
+
+    <div class="butPremium">
+        <a class="button" id="premium">Accès Premium</a>
+        <a class="button" id="premiumPro">Accès Premium Pro</a>
+    </div>
+
+
+
+
+    <div class="description">
+        <p class="title" id="title"><strong>TOP TOPICS</strong></p>
+        <p class="Subtitle" id="subtitle">Voici les 10 topics les plus rechercher en ce moment</p>
+    </div>
+
+    <div class="topicImage">
+        <img src="../assets/images/Groupe 42.png" alt="" width="70%" height="">
+    </div>
+
+
+
+    </div>
+
+    <footer class="footer">
+        <p class="basDePage">
+            Powered by
+        </p>
+    </footer>
+
+    </div>
 </template>
 
   <script>
+
     import * as ozae from '../ozaeApi';
     export default {
       name: 'Search',
@@ -64,73 +127,69 @@
   </script>
   
 <style >
+    .navbar{
+        background-color: black;
+
+    }
     .categ{
+
         display: flex;
         flex-wrap: wrap;
         width: 70%;
         height: 50%;
         margin: 0 auto;
+
     }
 
-    .width{
-        width: 33%;
-    }
 
-   .top
+   #top
     {
         background-color: #ff565e;
-        height: 100px;
+        padding: 60px;
+       border-radius: unset;
     }
 
-     .economie
+     #economie
     {
         background-color: #888888;
-        height: 100px;
+         padding: 60px;
+         border-radius: unset;
     }
-    .science
+    #scienceTech
     {
         background-color: #57c556;
-        height: 100px;
+        padding: 60px;
+        border-radius: unset;
 
     }
-      .divertissement
+    #divertissement
     {
         background-color: #ff51e0;
-        height: 100px;
+        padding: 60px;
+        border-radius: unset;
 
     }
-    .sports
+    #sport
     {
         background-color: #ffbb50;
-        height: 100px;
+        padding: 60px;
+        border-radius: unset;
 
     }
-    .santé
+    #santé
     {
         background-color: #52a7ff;
-        height: 100px;
+        padding: 60px;
+        border-radius: unset;
 
     }
 
 
     .container {
-  max-width: 960px;
-  margin: 0 auto;
-  width: 100%;
-  padding: 5rem 2rem;
-}
-.container .field-input {
-  text-align: center;
-}
-.container .field-input input {
-  text-align: left;
-  border-radius: 6rem;
-  border: 1px solid #a0a0a0;
-  padding: .6rem 2rem .6rem 1rem;
-  width: 685px;
-  font-family: 'roboto';
-  transition: .5s;
-}
+
+      padding-top: 3rem;
+        padding-bottom: 0.2em;
+    }
 .container .field-input input:focus {
   outline: none;
   border-color: #212121;
@@ -143,6 +202,57 @@
   top: 0;
   right: 1.5rem;
 }
+    .searchpage{
+        background-color: #060025;
+        padding-bottom: auto;
+    }
+#title{
+    color: white;
+}
+    #subtitle{
+        color: white;
+        margin-bottom: 2%;
+    }
+    #searchbar{
+        padding-left: 140px;
+        padding-right: 85px;
 
+    }
+
+    .butPremium{
+        margin-bottom: 4%;
+    }
+
+    #premium{
+        background-color: darkgrey;
+        border-color: darkgrey;
+        color: white;
+        border-radius: unset;
+        margin-right: 3%;
+        font-weight: bold;
+        font-size: large;
+    }
+
+    #premiumPro{
+        background-color:darkgoldenrod;
+        border-color: darkgoldenrod;
+        color: white;
+        border-radius: unset;
+        font-weight: bold;
+        font-size: large;
+    }
+
+    .topicImage{
+        padding-bottom: 2%;
+    }
+    .footer{
+        padding: unset;
+
+    }
+    .basDePage{
+        padding: 12px;
+        margin-right: 90%;
+
+    }
 </style>
 
