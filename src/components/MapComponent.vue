@@ -111,49 +111,49 @@
           "id": "US",
           "edition": "en-us-ny",
           "name": "United States",
-          "fill": am4core.color("#F05C5C")
+          // "fill": am4core.color("#F05C5C")
         },
         {
           "id": "IT",
           "edition": "it-it",
           "name": "Italie",
-          "fill": am4core.color("#F05C5C")
+          // "fill": am4core.color("#F05C5C")
         },
         {
           "id": "PT",
           "edition": "pt-br",
           "name": "Portugal",
-          "fill": am4core.color("#F05C5C")
+          // "fill": am4core.color("#F05C5C")
         },
         {
           "id": "GB",
           "edition": "en-gb",
           "name": "United Kingdom",
-          "fill": am4core.color("#F05C5C")
+          // "fill": am4core.color("#F05C5C")
         },
         {
           "id": "BE",
           "edition": "fr-be",
           "name": "Belgium",
-          "fill": am4core.color("#F05C5C")
+          // "fill": am4core.color("#F05C5C")
         },
         {
           "id": "ES",
           "edition": "es-es",
           "name": "Spain",
-          "fill": am4core.color("#F05C5C")
+          // "fill": am4core.color("#F05C5C")
         },
         {
           "id": "DE",
           "edition": "de-de",
           "name": "Germany",
-          "fill": am4core.color("#F05C5C")
+          // "fill": am4core.color("#F05C5C")
         },
         {
           "id": "FR",
           "edition": "fr-fr",
           "name": "France",
-          "fill": am4core.color("#F05C5C")
+          // "fill": am4core.color("#F05C5C")
         }
       ];
 
@@ -161,6 +161,9 @@
         console.log(scores);
         polygonSeries.data.forEach((country, index, array) => {
           if(scores[country['edition']] !== undefined){
+            if(scores[country['edition']] < 1000){
+              country.fill = am4core.color("#FFFF");
+            }
             country['score'] = scores[country['edition']];
           }
         });

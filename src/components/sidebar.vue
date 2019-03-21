@@ -3,19 +3,14 @@
         <!--TODO IMG-->
         <header class="card-header">
             <p class="card-header-title">
-                titre de la topic
+                {{this.$route.params.category}}
             </p>
         </header>
-        <div class="card" v-for="article in articles">
-            <div class="card-content">
-                <div class="content">
-                    <a :href="article.url">{{ article.name }}</a>
-                    <br>
-                </div>
-            </div>
-            <footer class="card-footer">
-                <a href="#" class="card-footer-item">S'abonner</a>
-            </footer>
+        <div class="article" v-for="article in articles">
+            <a :href="article.url">
+                <img :src="article.img_uri" alt="">
+            </a>
+            <p class="article__name">{{article.name}}</p>
         </div>
     </div>
 
@@ -35,7 +30,15 @@
 <style scoped>
     div {
         width: 300px;
-        height: 500px;
-        background: red;
+    }
+    .article {
+        display: block;
+        position: relative;
+        color: white;
+    }
+    .article__name {
+        position: absolute;
+        bottom: 0;
+        background: rgba(0,0,0, 0.8);
     }
 </style>
