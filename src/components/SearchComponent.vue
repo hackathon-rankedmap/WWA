@@ -11,9 +11,8 @@
             </nav>
             <div class="container  ">
                 <div class="field column" id="searchbar">
-
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input" type="text" placeholder="Recherche...">
+                        <input class="input" type="text" placeholder="Recherche..." v-model="query" @keypress.enter="testQuery(query)">
                         <span class="icon is-small is-left">
                    <i class="fas fa-search"></i>
                 </span>
@@ -100,6 +99,7 @@
     name: 'Search',
     data () {
       return {
+        query: "",
         locales : ['fr-fr', 'en-gb', 'fr-be', 'nl-be', 'de-de', 'en-us-ny', 'it-it', 'pt-br', 'es-es'],
       }
     },
@@ -109,7 +109,7 @@
         const promises = [];
         this.locales.forEach((locale) => {
           promises.push(
-            ozae.getArticles("20190319__20190320", locale, category)
+            ozae.getPopularArticles(locale, 1, category)
               .then((articles) => ozae.getTotalScores(articles))
               .then((score) => { return score })
           );
@@ -124,6 +124,30 @@
       test(category){
         this.getScoreByCategory(category)
           .then((scores) => serverBus.$emit('getScoresByCat', scores))
+      },
+      testQuery(query){
+        this.getScoreByQuery(query)
+          .then((scores) => {
+            this.$router.push(`/map/${query}`);
+            return serverBus.$emit('getScoresByCat', scores)
+          })
+      },
+      getScoreByQuery(query){
+        const scores = {};
+        const promises = [];
+        this.locales.forEach((locale) => {
+          promises.push(
+            ozae.searchByText(query, '20190319__20190321', locale)
+              .then((articles) => ozae.getTotalScores(articles))
+              .then((score) => { return score })
+          );
+        });
+        return Promise.all(promises).then((values) => {
+          values.forEach( (value, index) => {
+            scores[this.locales[index]] = value
+          });
+          return Promise.resolve(scores);
+        });
       }
     }
   }

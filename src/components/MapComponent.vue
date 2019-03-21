@@ -2,10 +2,9 @@
     <div>
         <NavBar></NavBar>
         <router-link to="/" class="button is-primary is-rounded" style="margin-top: 16px; font-weight: bold">Choisir une catégorie</router-link>
-        <div class ="side">
+        <div class="side">
             <SideBar v-show="toggleSideBar" :articles="articles"></SideBar>
-            <div class="hello" id="chartDiv">
-            </div>
+            <div class="hello" id="chartDiv"></div>
         </div>
     </div>
 </template>
@@ -182,12 +181,21 @@
           'science': 't',
           'entertainment': 'e'
         };
-        ozae.getArticles('20190319__20190320', edition, matching[this.category])
-          .then((articles) => {
-              this.articles = articles;
-              console.log(this.articles);
-              this.toggleSideBar = true;
-        });
+        if(matching[this.category] === undefined){
+            ozae.searchByText(this.category, '20190320__20190321', edition)
+              .then(articles => {
+                this.articles = articles;
+                console.log(this.articles);
+                this.toggleSideBar = true
+              });
+        } else {
+            ozae.getPopularArticles(edition, 1, matching[this.category])
+              .then((articles) => {
+                  this.articles = articles;
+                  console.log(this.articles);
+                  this.toggleSideBar = true;
+            });
+        }
 
         if (lastSelected) {
           // This line serves multiple purposes:
@@ -238,6 +246,8 @@
         width: 100%;
         height: 600px;
         background-color: #080027;
-
+    }
+    .side {
+        display: flex;
     }
 </style>

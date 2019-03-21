@@ -6,8 +6,8 @@ const locales = ['fr-fr', 'en-gb', 'fr-be', 'nl-be', 'de-de', 'en-us-ny', 'it-it
 
 
 
-export function getPopularArticles(edition, hours, order = 'social_score', orderStr = 'DESC'){
-  const url = `${baseUrl}/gnw/articles?key=${key}&edition=${edition}&hours=${hours}&options[newsonfire]=1&order[col]=${order}&order[srt]=${orderStr}`;
+export function getPopularArticles(edition, hours, topic = "all", order = 'social_score', orderStr = 'DESC'){
+  const url = `${baseUrl}/gnw/articles?key=${key}&edition=${edition}&hours=${hours}&options[newsonfire]=1&order[col]=${order}&order[srt]=${orderStr}&topic=${topic}`;
   return axios.get(url).then( (response) => { return Promise.resolve(response.data.articles) } )
 }
 
@@ -32,10 +32,12 @@ export function getPopularTopics(articles){
   return Promise.resolve(topics);
 }
 
-export function searchByText(query, date, edition, limit = 20) {
+export function searchByText(query, date, edition = "", limit = 20) {
   const url = `${baseUrl}/gnw/articles?date=${date}&key=${key}&edition=${edition}&query=${query}&hard_limit=${limit}`;
-  axios.get(url)
-      .then( (response) => {return Promise.resolve(response.data.articles)} )
+  return axios.get(url)
+      .then( (response) => {
+        return Promise.resolve(response.data.articles)
+      } )
 }
 
 
