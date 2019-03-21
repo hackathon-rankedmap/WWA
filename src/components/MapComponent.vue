@@ -1,14 +1,14 @@
 <template>
     <div>
         <NavBar></NavBar>
-        <button @click ="goHome"> <a class="button is-primary is-rounded">Choisir une catégorie</a>
-        </button>
-        <div class="hello" id="chartDiv">
-
+        <button @click ="goHome"> <a class="button is-primary is-rounded">Choisir une catégorie</a></button>
+        <div class ="side">
+            <SideBar></SideBar>
+            <div class="hello" id="chartDiv">
+            </div>
         </div>
     </div>
 </template>
-
 <script>
   import NavBar from './NavBarComponent.vue'
   import * as am4core from "@amcharts/amcharts4/core";
