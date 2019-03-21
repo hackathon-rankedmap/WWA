@@ -1,8 +1,8 @@
 <template>
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href=""  >
-                <img src="../assets/Logo_WWA.svg" width="90">
+            <a class="navbar-item" href="/"  >
+                <img src="../assets/images/Fichier_14@4x.png">
             </a>
 
         </div>
@@ -50,6 +50,7 @@
                     MONDE
                 </a>
 
+                <router-link to="/" class="navbar-item">CATEGORIE</router-link>
             </div>
         </div>
     </nav>
@@ -70,5 +71,7 @@
 </script>
 
 <style scoped>
-
+    .navbar-item {
+        color: white;
+    }
 </style>

@@ -5,7 +5,7 @@
             <nav class="navbar" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand">
                     <a class="navbar-item" href="https://bulma.io">
-                        <img src="../assets/Logo_WWA.png" alt="" width="112" height="28">
+                        <img src="../assets/images/Fichier_14@4x.png">
                     </a>
                 </div>
             </nav>
@@ -25,45 +25,41 @@
                     <div class="tile is-vertical is-11">
                         <div class="tile">
                             <article class="tile is-child box" id="top" @click="test()">
-                                <img src="../assets/images/Fichier_6@4x.png" alt="" width="60" height="10">
-                                <p class="Subtitle"><strong>LES PLUS RECENTS</strong></p>
+                                <p class="Subtitle choix">LES PLUS RECENTS</p>
 
                             </article>
-                            <article class="tile is-child box" id="economie" @click="test('b')">
-                                <img src="../assets/images/Fichier_7@4x.png" alt="" width="80" height="10">
+                            <article class="tile is-child box" id="economie1" @click="test('b')">
+
                                 <router-link class="nav-link" to="/map/economy">
-                                    <p class="Subtitle"><strong>
+                                    <p class="Subtitle choix">
                                         ECONOMIE
-                                    </strong></p>  </router-link>
+                                    </p>
+                                </router-link>
                             </article>
-                            <article class="tile is-child box" id="scienceTech" @click="test('t')">
-                                <img src="../assets/images/Fichier_8@4x.png" alt="" width="80" height="10">
+                            <article class="tile is-child box" id="scienceTech1" @click="test('t')">
                                 <router-link class="nav-link" to="/map/science">
-                                    <p class="Subtitle"><strong>SCIENCE ET TECHNOLOGIE</strong></p>
+                                    <p class="Subtitle choix">SCIENCE ET TECHNOLOGIE</p>
                                 </router-link>
 
                             </article>
                         </div>
                         <div class="tile">
-                            <article class="tile is-child box" id="divertissement" @click="test('e')">
-                                <img src="../assets/images/Fichier_10@4x.png" alt="" width="80" height="10">
+                            <article class="tile is-child box" id="divertissement1" @click="test('e')">
                                 <router-link class="nav-link" to="/map/entertainment">
-                                    <p class="Subtitle"><strong>DIVERTISSEMENT</strong></p>
+                                    <p class="Subtitle choix">DIVERTISSEMENT</p>
                                 </router-link>
+
                             </article>
-                            <article class="tile is-child box" id="sport" @click="test('s')">
-                                <img src="../assets/images/Fichier_11@4x.png" alt="" width="80" height="10">
+                            <article class="tile is-child box" id="sport1" @click="test('s')">
                                 <router-link class="nav-link" to="/map/sport">
-                                    <p class="Subtitle"><strong>SPORT</strong></p>
+                                    <p class="Subtitle choix">SPORT</p>
                                 </router-link>
 
                             </article>
-                            <article class="tile is-child box" id="santé" @click="test('m')">
-                                <img src="../assets/images/Fichier_12@4x.png" alt="" width="80" height="10">
+                            <article class="tile is-child box" id="santé1" @click="test('m')">
                                 <router-link class="nav-link" to="/map/health">
-                                    <p class="Subtitle"><strong>SANTE</strong></p>
+                                    <p class="Subtitle choix">SANTE</p>
                                 </router-link>
-
                             </article>
                         </div>
                     </div>
@@ -156,64 +152,71 @@
 <style >
     .navbar{
         background-color: black;
-
     }
     .categ{
-
         display: flex;
         flex-wrap: wrap;
         width: 70%;
         height: 50%;
         margin: 0 auto;
-
     }
-
-
     #top
     {
-        background-color: #ff565e;
         padding: 60px;
         border-radius: unset;
+        font-weight: bold;
     }
-
-    #economie
+    #economie1
     {
-        background-color: #888888;
+        background: url("../assets/images/markus-spiske-484245-unsplash.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
         padding: 60px;
         border-radius: unset;
+        font-weight: bold;
     }
-    #scienceTech
+    #scienceTech1
     {
-        background-color: #57c556;
+        background: url("../assets/images/hans-reniers-746177-unsplash.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
         padding: 60px;
         border-radius: unset;
-
+        font-weight: bold;
     }
-    #divertissement
+    #divertissement1
     {
-        background-color: #ff51e0;
+        background: url("../assets/images/myke-simon-1037761-unsplash.jpg");
+        background-repeat: no-repeat;
+        background-size: 150%;
         padding: 60px;
         border-radius: unset;
-
+        font-weight: bold;
     }
-    #sport
+    .choix{
+        padding-top: 1%;
+        background-color: black;
+        color: white;
+    }
+    #sport1
     {
-        background-color: #ffbb50;
+        background: url("../assets/images/filip-mroz-177565-unsplash.jpg");
+        background-repeat: no-repeat;
         padding: 60px;
         border-radius: unset;
-
+        background-size: 150%;
+        font-weight: bold;
     }
-    #santé
+    #santé1
     {
-        background-color: #52a7ff;
+        background: url("../assets/images/martin-brosy-758535-unsplash.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
         padding: 60px;
         border-radius: unset;
-
+        font-weight: bold;
     }
-
-
     .container {
-
         padding-top: 3rem;
         padding-bottom: 0.2em;
     }
@@ -243,13 +246,10 @@
     #searchbar{
         padding-left: 140px;
         padding-right: 85px;
-
     }
-
     .butPremium{
         margin-bottom: 4%;
     }
-
     #premium{
         background-color: darkgrey;
         border-color: darkgrey;
@@ -259,7 +259,6 @@
         font-weight: bold;
         font-size: large;
     }
-
     #premiumPro{
         background-color:darkgoldenrod;
         border-color: darkgoldenrod;
@@ -268,18 +267,15 @@
         font-weight: bold;
         font-size: large;
     }
-
     .topicImage{
         padding-bottom: 2%;
     }
     .footer{
         padding: unset;
-
     }
-    .basDePage{
+    .basPage{
         padding: 12px;
-        margin-right: 90%;
-
+        margin-right: 85%;
     }
 </style>
 

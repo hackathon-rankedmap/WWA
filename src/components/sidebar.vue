@@ -12,6 +12,7 @@
             </a>
             <p class="article__name">{{article.name}}</p>
         </div>
+        <a href="">Voir plus</a>
     </div>
 
 

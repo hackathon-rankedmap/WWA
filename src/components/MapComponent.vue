@@ -1,10 +1,19 @@
 <template>
     <div>
         <NavBar></NavBar>
-        <router-link to="/" class="button is-primary is-rounded" style="margin-top: 16px; font-weight: bold">Choisir une catégorie</router-link>
         <div class="side">
             <SideBar v-show="toggleSideBar" :articles="articles"></SideBar>
             <div class="hello" id="chartDiv"></div>
+        </div>
+        <div class="content" :style="{backgroundColor: '#080127', color: 'white'  }">
+            <div class=" content" >
+                <p class="title" ><strong>{{ toto[category]["name"] }}</strong></p>
+                <p class="Subtitle" >{{ toto[category]["subcatitle"] }}</p>
+                <p>{{toto[category]['background']}}</p>
+            </div>
+            <div class="content">
+                <p class="description" >{{ toto[category]["description"] }}</p>
+            </div>
         </div>
     </div>
 </template>
@@ -27,7 +36,45 @@
       return {
         toggleSideBar: false,
         category : this.$route.params.category,
-        articles : []
+        articles : [],
+        toto: {
+          sport: {
+            name: 'SPORT',
+            subtitle: 'Les resultats et les documents, les meilleurs buts et les derniers records, vivez le sport.',
+            description: 'Nous centralisons tout les articles des magazines spécialisés de manières à vous fournir\n' +
+              '                    une vue d\'ensemble du monde du sport international',
+            background: '#0000'
+          },
+          health: {
+            name: 'SANTE',
+            subtitle: 'Bénéficier des dernières informations sur les dernières études et tendances afin de vivre sainement.',
+            description: 'Soyez au courant des avancées médicales sur les vaccins, ds points réguliers sur les épidémies en cours et suivez leurs évolutions. \n' +
+              'Restez connectez avec nos partenaires spécialisés dans le domaine médical.\n',
+            background: ''
+          },
+          entertainment: {
+            name: 'DIVERTISSEMENT',
+            subtitle: 'Courts et longs métrages, séries,  YouTube, TV et musique, toutes les nouveautés sont ici.',
+            description: 'Ici retrouvez vos avis et critique sur les derniers films et séries ; retrouvez toutes les informations des sorties culturelles partout dans le monde.\n' +
+              'Soyez informé des concerts ou sorties des albums musicaux, à l\'échelle nationale et international.\n',
+            background: ''
+          },
+          science: {
+            name: 'SCIENCE',
+            subtitle: 'Restez à jour vis-à-vis des avancées scientifiques et technologique.',
+            description: 'Mise à Jour, technologie sans-fil, processeur, molécules, etc... Si tout cela vous intéresse vous êtes au bon endroit. Tout les compte rendus des recherches et les avancées technologiques se rencontre ici. \n' +
+              'Effectuez une veille technologique grâce à nos partenaires experts dans ces domaines.\n',
+            background: ''
+          },
+          economy: {
+            name: 'ECONOMIE',
+            subtitle: 'Se tenir au courant de chaque changement majeur, chaque conséquence de l\'économie internationale.',
+            description: 'Grand changement au niveau de la bourse, amendes, faillites et évolutions des bourses retrouvez votre condenser d\'articles sur l\'économie où que vous soyez. \n' +
+              'Tenez vous au courant, perfectionnez ou apprenez vos connaissances sur les économies grâces aux articles de nos partenaires.\n',
+            background: ''
+          }
+
+        }
       }
     },
     methods:{
@@ -247,7 +294,7 @@
 <style>
     #chartDiv {
         width: 100%;
-        height: 600px;
+        min-height: 600px;
         background-color: #080027;
     }
     .side {
