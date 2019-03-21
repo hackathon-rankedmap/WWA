@@ -14,7 +14,9 @@ Vue.use(VueRouter)
   const routes = [
 
     {path: '/',component: SearchComponent},
-    {path: '/map',component: MapComponent,NavBarComponent},
+    {path: '/map',component: MapComponent},
+    {path: '/map/:category/', component: MapComponent},
+    {path: '/map/:category/:locale', component: MapComponent}
 
   ];
 

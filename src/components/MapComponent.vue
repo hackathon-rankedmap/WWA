@@ -17,19 +17,22 @@
   import {serverBus} from "../main";
 
   export default {
+    name: 'Map',
+    components:{
+      NavBar,
+    },
+    data () {
+      return {
+        category : this.$route.params.category,
+      }
+    },
     methods:{
       goHome(){
         this.$router.push('/');
       },
     },
-
-    name: 'Map',
-    components:{
-      NavBar,
-    },
     mounted() {
       serverBus.$on('locale', (locale) => {
-        console.log(locale);
         if (locale === 'MD') {
           map.goHome();
         } else {
@@ -163,7 +166,8 @@
 
 
       var lastSelected;
-      polygonTemplate.events.on("hit", function (ev) {
+      polygonTemplate.events.on("hit", (ev) => {
+        this.$router.push(`/map/${this.category}/${ev.target._dataItem.dataContext.edition}`);
         if (lastSelected) {
           // This line serves multiple purposes:
           // 1. Clicking a country twice actually de-activates, the line below
@@ -189,7 +193,6 @@
 
       polygonTemplate.events.on("hit", function (ev) {
         map.closeAllPopups();
-        console.log(ev.target._dataItem.dataContext);
         let data = ev.target.dataItem.dataContext;
         let name = data.name;
         if(data.score !== undefined){
