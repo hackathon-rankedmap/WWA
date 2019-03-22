@@ -6,8 +6,8 @@ const locales = ['fr-fr', 'en-gb', 'fr-be', 'nl-be', 'de-de', 'en-us-ny', 'it-it
 
 
 
-export function getPopularArticles(edition, hours, topic = "all", order = 'social_score', orderStr = 'DESC', hard_limit = 2){
-  const url = `${baseUrl}/gnw/articles?key=${key}&edition=${edition}&hours=${hours}&options[newsonfire]=1&order[col]=${order}&order[srt]=${orderStr}&topic=${topic}&hard_limit=${hard_limit}`;
+export function getPopularArticles(edition, hours, topic = "all", orderStr = 'DESC', hard_limit = 2){
+  const url = `${baseUrl}/gnw/articles?key=${key}&edition=${edition}&hours=${hours}&options[newsonfire]=1&order[srt]=${orderStr}&topic=${topic}&hard_limit=${hard_limit}`;
   return axios.get(url).then( (response) => { return Promise.resolve(response.data.articles) } )
 }
 

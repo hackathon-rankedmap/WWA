@@ -46,14 +46,14 @@
               '                    une vue d\'ensemble du monde du sport international',
             background: '#ffbb50'
           },
-          health: {
+          sante: {
             name: 'SANTE',
             subtitle: 'Bénéficier des dernières informations sur les dernières études et tendances afin de vivre sainement.',
             description: 'Soyez au courant des avancées médicales sur les vaccins, ds points réguliers sur les épidémies en cours et suivez leurs évolutions. \n' +
               'Restez connectez avec nos partenaires spécialisés dans le domaine médical.\n',
             background: '#52a7ff'
           },
-          entertainment: {
+          divertissement: {
             name: 'DIVERTISSEMENT',
             subtitle: 'Courts et longs métrages, séries,  YouTube, TV et musique, toutes les nouveautés sont ici.',
             description: 'Ici retrouvez vos avis et critique sur les derniers films et séries ; retrouvez toutes les informations des sorties culturelles partout dans le monde.\n' +
@@ -67,15 +67,64 @@
               'Effectuez une veille technologique grâce à nos partenaires experts dans ces domaines.\n',
             background: '#57c556'
           },
-          economy: {
+          economie: {
             name: 'ECONOMIE',
             subtitle: 'Se tenir au courant de chaque changement majeur, chaque conséquence de l\'économie internationale.',
             description: 'Grand changement au niveau de la bourse, amendes, faillites et évolutions des bourses retrouvez votre condenser d\'articles sur l\'économie où que vous soyez. \n' +
               'Tenez vous au courant, perfectionnez ou apprenez vos connaissances sur les économies grâces aux articles de nos partenaires.\n',
             background: '#888888'
           }
-
-        }
+        },
+        mapData: [
+          {
+            "id": "US",
+            "edition": "en-us-ny",
+            "name": "United States",
+            // "fill": am4core.color("#F05C5C")
+          },
+          {
+            "id": "IT",
+            "edition": "it-it",
+            "name": "Italie",
+            // "fill": am4core.color("#F05C5C")
+          },
+          {
+            "id": "PT",
+            "edition": "pt-br",
+            "name": "Portugal",
+            // "fill": am4core.color("#F05C5C")
+          },
+          {
+            "id": "GB",
+            "edition": "en-gb",
+            "name": "United Kingdom",
+            // "fill": am4core.color("#F05C5C")
+          },
+          {
+            "id": "BE",
+            "edition": "fr-be",
+            "name": "Belgium",
+            // "fill": am4core.color("#F05C5C")
+          },
+          {
+            "id": "ES",
+            "edition": "es-es",
+            "name": "Spain",
+            // "fill": am4core.color("#F05C5C")
+          },
+          {
+            "id": "DE",
+            "edition": "de-de",
+            "name": "Germany",
+            // "fill": am4core.color("#F05C5C")
+          },
+          {
+            "id": "FR",
+            "edition": "fr-fr",
+            "name": "France",
+            // "fill": am4core.color("#F05C5C")
+          }
+        ]
       }
     },
     methods:{
@@ -154,69 +203,18 @@
       polygonSeries.exclude = ["AQ"];
 
 // Add some data
-      polygonSeries.data = [
-        {
-          "id": "US",
-          "edition": "en-us-ny",
-          "name": "United States",
-          // "fill": am4core.color("#F05C5C")
-        },
-        {
-          "id": "IT",
-          "edition": "it-it",
-          "name": "Italie",
-          // "fill": am4core.color("#F05C5C")
-        },
-        {
-          "id": "PT",
-          "edition": "pt-br",
-          "name": "Portugal",
-          // "fill": am4core.color("#F05C5C")
-        },
-        {
-          "id": "GB",
-          "edition": "en-gb",
-          "name": "United Kingdom",
-          // "fill": am4core.color("#F05C5C")
-        },
-        {
-          "id": "BE",
-          "edition": "fr-be",
-          "name": "Belgium",
-          // "fill": am4core.color("#F05C5C")
-        },
-        {
-          "id": "ES",
-          "edition": "es-es",
-          "name": "Spain",
-          // "fill": am4core.color("#F05C5C")
-        },
-        {
-          "id": "DE",
-          "edition": "de-de",
-          "name": "Germany",
-          // "fill": am4core.color("#F05C5C")
-        },
-        {
-          "id": "FR",
-          "edition": "fr-fr",
-          "name": "France",
-          // "fill": am4core.color("#F05C5C")
-        }
-      ];
 
       serverBus.$on('getScoresByCat', (scores) => {
         console.log(scores);
-        polygonSeries.data.forEach((country, index, array) => {
+        this.mapData.forEach((country, index, array) => {
           if(scores[country['edition']] !== undefined){
-            if(scores[country['edition']] < 1000){
-              country.fill = am4core.color("#FFFF");
-            }
+            country['fill'] = am4core.color("#367B25");
             country['score'] = scores[country['edition']];
           }
         });
       });
 
+      polygonSeries.data = this.mapData;
 // Bind "fill" property to "fill" key in data
       polygonTemplate.propertyFields.fill = "fill";
 
@@ -226,11 +224,11 @@
         let edition = ev.target._dataItem.dataContext.edition;
         this.$router.push(`/map/${this.category}/${edition}`);
         const matching = {
-          'economy': 'b',
-          'health': 'm',
+          'economie': 'b',
+          'sante': 'm',
           'sport': 's',
           'science': 't',
-          'entertainment': 'e'
+          'divertissement': 'e'
         };
         if(matching[this.category] === undefined){
             ozae.searchByText(this.category, '20190320__20190321', edition)
@@ -240,7 +238,7 @@
                 this.toggleSideBar = true
               });
         } else {
-            ozae.getPopularArticles(edition, 1, matching[this.category])
+            ozae.getPopularArticles(edition, 6, matching[this.category], 'DESC', 20)
               .then((articles) => {
                   this.articles = articles;
                   console.log(this.articles);

@@ -30,7 +30,7 @@
                             </article>
                             <article class="tile is-child box" id="economie1" @click="test('b')">
 
-                                <router-link class="nav-link" to="/map/economy">
+                                <router-link class="nav-link" to="/map/economie">
                                     <p class="Subtitle choix">
                                         ECONOMIE
                                     </p>
@@ -45,7 +45,7 @@
                         </div>
                         <div class="tile">
                             <article class="tile is-child box" id="divertissement1" @click="test('e')">
-                                <router-link class="nav-link" to="/map/entertainment">
+                                <router-link class="nav-link" to="/map/divertissement">
                                     <p class="Subtitle choix">DIVERTISSEMENT</p>
                                 </router-link>
 
@@ -57,7 +57,7 @@
 
                             </article>
                             <article class="tile is-child box" id="santé1" @click="test('m')">
-                                <router-link class="nav-link" to="/map/health">
+                                <router-link class="nav-link" to="/map/sante">
                                     <p class="Subtitle choix">SANTE</p>
                                 </router-link>
                             </article>

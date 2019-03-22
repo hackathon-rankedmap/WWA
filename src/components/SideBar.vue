@@ -3,14 +3,14 @@
         <div class="header" :style="{backgroundColor : colors[category] }">
             {{this.$route.params.category}}
         </div>
-        <div v-if="articles.length > 0">
-            <div class="article" v-for="article in articles">
-                <a :href="article.url">
+        <div v-if="a.length > 0">
+            <div class="article" v-for="article in a">
+                <a :href="article.url" target="_blank">
                     <img :src="article.img_uri" alt="">
                 </a>
                 <p class="article__name">{{article.name}}</p>
             </div>
-            <a href="">Voir plus</a>
+            <a class="more" @click="more">Voir plus</a>
         </div>
         <div v-else>Pas d'article :(</div>
     </div>
@@ -34,7 +34,16 @@
           divertissement: '#ff51e0',
           sante: '#52a7ff',
           sport: '#ffbb50'
-        }
+        },
+        offset: 0
+      }
+    },
+    computed :{
+      a() {return this.articles.splice(this.offset, 3)}
+    },
+    methods: {
+      more() {
+        this.offset += 3
       }
     }
   }
@@ -48,8 +57,11 @@
         display: block;
         position: relative;
         color: white;
+        min-height: 200px;
+        background: black;
     }
     .article__name {
+        padding: 10px;
         position: absolute;
         bottom: 0;
         background: rgba(0,0,0, 0.8);
@@ -60,5 +72,11 @@
         text-transform: uppercase;
         font-weight: bold;
         color: white;
+    }
+    .more{
+        font-weight: bold;
+        color: black;
+        padding:16px;
+        display: block;
     }
 </style>
